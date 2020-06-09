@@ -4,9 +4,9 @@ from .models import Program
 
 
 class ProgramSerializer(serializers.ModelSerializer):
-    id = serializers.IntegerField()
-    is_active = serializers.BooleanField()
-    name = serializers.CharField()
+    id = serializers.IntegerField(required=False)
+    is_active = serializers.BooleanField(required=False)
+    name = serializers.CharField(required=True)
 
     class Meta:
         model = Program
@@ -16,10 +16,5 @@ class ProgramSerializer(serializers.ModelSerializer):
             'name',
         ]
 
-    extra_kwargs = {
-        "id": {"required": False},
-        "is_active": {"required": False},
-        "name": {"required": True},
-    }
 
 
